@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface SPSApplePay : NSObject
-- (void)startApplePay;
+- (void)startApplePayWithController:(UIViewController *)controller;
 @end

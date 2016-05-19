@@ -19,7 +19,7 @@
 
 @implementation SPSApplePay
 
-- (void)startApplePay {
+- (void)startApplePayWithController:(UIViewController *)controller{
     
     if (![PKPaymentAuthorizationViewController class]) {
         NSLog(@"操作系统不支持ApplePay，请升级至9.0以上版本，且iPhone6以上设备才支持");
@@ -41,7 +41,7 @@
         PKPaymentRequest * applePayRequest = [[PKPaymentRequest alloc] init];
         // Merchant ID
         // ID 的注册方法  http://www.jianshu.com/p/2e5e45afc246
-        applePayRequest.merchantIdentifier = @"";
+        applePayRequest.merchantIdentifier = @"merchant.com.yao.rytong";
         // 国家代码
         applePayRequest.countryCode = @"CH";
         // 货币的代码
@@ -84,19 +84,19 @@
         PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"Yasin" amount:totalAmount];  //最后这个是支付给谁。
         
         self.summaryItems = [NSMutableArray arrayWithArray:@[subtotal, discount, methods, total]];
-        //summaryItems为账单列表，类型是 NSMutableArray，这里设置成成员变量，在后续的代理回调中可以进行支付金额的调整。
+        //summaryItems为账单列表，类型是 NSMutableArray，这里#pragma mark - delegate 设置成成员变量，在后续的代理回调中可以进行支付金额的调整。
         applePayRequest.paymentSummaryItems = self.summaryItems;
         
         PKPaymentAuthorizationViewController *view = [[PKPaymentAuthorizationViewController alloc]initWithPaymentRequest:applePayRequest];
         view.delegate = self;
         
-        self.applePayController = [[UIViewController alloc] init];
-        [self.applePayController presentViewController:view animated:YES completion:nil];
+        self.applePayController = controller;
+        [controller presentViewController:view animated:YES completion:nil];
     }
 }
 
 
-#pragma mark - delegate 
+
 // 交易完成的回调
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
     NSLog(@"交易完成");
@@ -135,6 +135,7 @@
 //当用户选择了一个新的支付卡的时候会调用。(例如,应用信用卡附加费)
 -(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectPaymentMethod:(PKPaymentMethod *)paymentMethod completion:(void (^)(NSArray<PKPaymentSummaryItem *> * _Nonnull))completion {
     
+    NSLog(@"%@",paymentMethod);
 
 }
 

@@ -1,13 +1,13 @@
 //
 //  AppDelegate.m
-//  superset
+//  superSet
 //
-//  Created by yao on 16/4/21.
+//  Created by yao on 16/5/19.
 //  Copyright © 2016年 yao. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "SPSViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,20 +21,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    // 加载过度动画
-    
-    
-    // 判断是否该版本第一次进入
-    
-    // 判断是否登录
-    
-    // 加载主页面
-    self.window.rootViewController = [[UIViewController alloc] init];
+    self.window.rootViewController = [[SPSViewController alloc] init];
     
     [self.window makeKeyAndVisible];
-    
-    
-    
     
     return YES;
 }

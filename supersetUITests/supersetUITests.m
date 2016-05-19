@@ -1,18 +1,18 @@
 //
-//  supersetUITests.m
-//  supersetUITests
+//  superSetUITests.m
+//  superSetUITests
 //
-//  Created by yao on 16/4/21.
+//  Created by yao on 16/5/19.
 //  Copyright © 2016年 yao. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface supersetUITests : XCTestCase
+@interface superSetUITests : XCTestCase
 
 @end
 
-@implementation supersetUITests
+@implementation superSetUITests
 
 - (void)setUp {
     [super setUp];

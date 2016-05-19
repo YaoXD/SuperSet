@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:superset.xcodeproj">
+      location = "self:superSet.xcodeproj">
    </FileRef>
 </Workspace>

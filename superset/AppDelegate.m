@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "SPSViewController.h"
+#import "SPSLaunchGuideController.h"
+
 
 @interface AppDelegate ()
 
@@ -21,8 +22,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.window.rootViewController = [[SPSViewController alloc] init];
-    
+    // 将launchGuideController添加到window
+    self.window.rootViewController = [SPSLaunchGuideController launchGuideController];
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -1,25 +1,21 @@
 //
-//  SPSViewController.m
+//  SPSMainViewController.m
 //  superSet
 //
 //  Created by yao on 16/5/19.
 //  Copyright © 2016年 yao. All rights reserved.
 //
 
-#import "SPSViewController.h"
-#import "SPSApplePay.h"
+#import "SPSMainViewController.h"
 
-@interface SPSViewController ()
+@interface SPSMainViewController ()
 
 @end
 
-@implementation SPSViewController
+@implementation SPSMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-//    [[[SPSApplePay alloc] init] startApplePayWithController:self];
     
 }
 
@@ -28,12 +24,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (instancetype)initWithView:(UIView *)view {
-    self = [self init];
-    view.frame = [UIScreen mainScreen].bounds;
-    [self.view addSubview:view];
-    return self;
-}
 /*
 #pragma mark - Navigation
 

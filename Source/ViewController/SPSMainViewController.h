@@ -1,5 +1,5 @@
 //
-//  SPSViewController.h
+//  SPSMainViewController.h
 //  superSet
 //
 //  Created by yao on 16/5/19.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPSViewController : UIViewController
-- (instancetype)initWithView:(UIView *)view;
+@interface SPSMainViewController : UIViewController
+
 @end

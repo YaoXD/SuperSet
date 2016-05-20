@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2030FA981CEEDA570020D032 /* SPSLaunchGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2030FA971CEEDA570020D032 /* SPSLaunchGuideController.m */; };
+		2030FA9B1CEEF3B20020D032 /* SPSLaunchGuideViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2030FA9A1CEEF3B20020D032 /* SPSLaunchGuideViewModel.m */; };
+		2030FA9E1CEEF5660020D032 /* SPSLaunchGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2030FA9D1CEEF5660020D032 /* SPSLaunchGuideView.m */; };
+		2030FAA21CEF03F50020D032 /* launchGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2030FAA11CEF03F50020D032 /* launchGuide.plist */; };
 		2040D08C1CED648D00D913EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D08B1CED648D00D913EC /* main.m */; };
 		2040D08F1CED648D00D913EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D08E1CED648D00D913EC /* AppDelegate.m */; };
 		2040D0951CED648D00D913EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2040D0931CED648D00D913EC /* Main.storyboard */; };
 		2040D0971CED648D00D913EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2040D0961CED648D00D913EC /* Assets.xcassets */; };
-		2040D09A1CED648D00D913EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2040D0981CED648D00D913EC /* LaunchScreen.storyboard */; };
 		2040D0A51CED648D00D913EC /* superSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D0A41CED648D00D913EC /* superSetTests.m */; };
 		2040D0B01CED648D00D913EC /* superSetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D0AF1CED648D00D913EC /* superSetUITests.m */; };
 		2040D3171CED64CB00D913EC /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2040D0C41CED64CA00D913EC /* add_user_icon@2x.png */; };
@@ -560,6 +563,8 @@
 		2040D5361CED64CB00D913EC /* xtsegment_bordor_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2040D30C1CED64CB00D913EC /* xtsegment_bordor_right@2x.png */; };
 		2040D5391CED64CB00D913EC /* SPSApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D3131CED64CB00D913EC /* SPSApplePay.m */; };
 		2040D53F1CED661100D913EC /* SPSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D53E1CED661100D913EC /* SPSViewController.m */; };
+		2040D5441CEDA51D00D913EC /* SPSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D5431CEDA51D00D913EC /* SPSMainViewController.m */; };
+		2040D5461CEDA55000D913EC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2040D5451CEDA55000D913EC /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -580,13 +585,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2030FA961CEEDA570020D032 /* SPSLaunchGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSLaunchGuideController.h; sourceTree = "<group>"; };
+		2030FA971CEEDA570020D032 /* SPSLaunchGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSLaunchGuideController.m; sourceTree = "<group>"; };
+		2030FA991CEEF3B20020D032 /* SPSLaunchGuideViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSLaunchGuideViewModel.h; sourceTree = "<group>"; };
+		2030FA9A1CEEF3B20020D032 /* SPSLaunchGuideViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSLaunchGuideViewModel.m; sourceTree = "<group>"; };
+		2030FA9C1CEEF5660020D032 /* SPSLaunchGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSLaunchGuideView.h; sourceTree = "<group>"; };
+		2030FA9D1CEEF5660020D032 /* SPSLaunchGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSLaunchGuideView.m; sourceTree = "<group>"; };
+		2030FAA11CEF03F50020D032 /* launchGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = launchGuide.plist; sourceTree = "<group>"; };
 		2040D0871CED648D00D913EC /* superSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = superSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2040D08B1CED648D00D913EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2040D08D1CED648D00D913EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2040D08E1CED648D00D913EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2040D0941CED648D00D913EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2040D0961CED648D00D913EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2040D0991CED648D00D913EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2040D09B1CED648D00D913EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2040D0A01CED648D00D913EC /* superSetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = superSetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2040D0A41CED648D00D913EC /* superSetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = superSetTests.m; sourceTree = "<group>"; };
@@ -1143,6 +1154,9 @@
 		2040D53D1CED661100D913EC /* SPSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSViewController.h; sourceTree = "<group>"; };
 		2040D53E1CED661100D913EC /* SPSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSViewController.m; sourceTree = "<group>"; };
 		2040D5401CED66C100D913EC /* superSet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = superSet.entitlements; sourceTree = "<group>"; };
+		2040D5421CEDA51D00D913EC /* SPSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSMainViewController.h; sourceTree = "<group>"; };
+		2040D5431CEDA51D00D913EC /* SPSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSMainViewController.m; sourceTree = "<group>"; };
+		2040D5451CEDA55000D913EC /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Source/ViewController/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1170,6 +1184,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2030FA9F1CEF03580020D032 /* UIImages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIImages;
+			sourceTree = "<group>";
+		};
+		2030FAA01CEF03CF0020D032 /* UIPlist */ = {
+			isa = PBXGroup;
+			children = (
+				2030FAA11CEF03F50020D032 /* launchGuide.plist */,
+			);
+			path = UIPlist;
+			sourceTree = "<group>";
+		};
 		2040D07E1CED648C00D913EC = {
 			isa = PBXGroup;
 			children = (
@@ -1234,11 +1263,11 @@
 			isa = PBXGroup;
 			children = (
 				2040D0BE1CED64CA00D913EC /* Config */,
-				2040D0C01CED64CA00D913EC /* Model */,
 				2040D0C11CED64CA00D913EC /* Network */,
-				2040D0C21CED64CA00D913EC /* Resource */,
 				2040D3101CED64CB00D913EC /* Tools */,
 				2040D5411CEDA3FD00D913EC /* Vendor */,
+				2040D0C21CED64CA00D913EC /* Resource */,
+				2040D0C01CED64CA00D913EC /* Model */,
 				2040D3141CED64CB00D913EC /* ViewController */,
 				2040D3151CED64CB00D913EC /* ViewModel */,
 			);
@@ -1269,6 +1298,8 @@
 		2040D0C21CED64CA00D913EC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2030FAA01CEF03CF0020D032 /* UIPlist */,
+				2030FA9F1CEF03580020D032 /* UIImages */,
 				2040D0C31CED64CA00D913EC /* Images */,
 				2040D30D1CED64CB00D913EC /* interfaceBuilder */,
 			);
@@ -2158,7 +2189,7 @@
 			isa = PBXGroup;
 			children = (
 				2040D0931CED648D00D913EC /* Main.storyboard */,
-				2040D0981CED648D00D913EC /* LaunchScreen.storyboard */,
+				2040D5451CEDA55000D913EC /* LaunchScreen.xib */,
 			);
 			path = interfaceBuilder;
 			sourceTree = "<group>";
@@ -2185,6 +2216,12 @@
 			children = (
 				2040D53D1CED661100D913EC /* SPSViewController.h */,
 				2040D53E1CED661100D913EC /* SPSViewController.m */,
+				2040D5421CEDA51D00D913EC /* SPSMainViewController.h */,
+				2040D5431CEDA51D00D913EC /* SPSMainViewController.m */,
+				2030FA961CEEDA570020D032 /* SPSLaunchGuideController.h */,
+				2030FA971CEEDA570020D032 /* SPSLaunchGuideController.m */,
+				2030FA9C1CEEF5660020D032 /* SPSLaunchGuideView.h */,
+				2030FA9D1CEEF5660020D032 /* SPSLaunchGuideView.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2192,6 +2229,8 @@
 		2040D3151CED64CB00D913EC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2030FA991CEEF3B20020D032 /* SPSLaunchGuideViewModel.h */,
+				2030FA9A1CEEF3B20020D032 /* SPSLaunchGuideViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2312,6 +2351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2040D5461CEDA55000D913EC /* LaunchScreen.xib in Resources */,
 				2040D5101CED64CB00D913EC /* tipIcon_PullRequestComment@2x.png in Resources */,
 				2040D3411CED64CB00D913EC /* btn_privateMsg_black@2x.png in Resources */,
 				2040D50C1CED64CB00D913EC /* tipIcon_ProjectTopic@2x.png in Resources */,
@@ -2417,7 +2457,6 @@
 				2040D3B61CED64CB00D913EC /* icon_file_folder_default@2x.png in Resources */,
 				2040D36B1CED64CB00D913EC /* coding_emoji_25@2x.png in Resources */,
 				2040D3231CED64CB00D913EC /* btn_fliter_down@3x.png in Resources */,
-				2040D09A1CED648D00D913EC /* LaunchScreen.storyboard in Resources */,
 				2040D4611CED64CB00D913EC /* placeholder_coding_square_80@2x.png in Resources */,
 				2040D5261CED64CB00D913EC /* tweet_btn_rewarded@2x.png in Resources */,
 				2040D42F1CED64CB00D913EC /* addUserBtn_Nav@2x.png in Resources */,
@@ -2804,6 +2843,7 @@
 				2040D4121CED64CB00D913EC /* member_cell_edit_remove@2x.png in Resources */,
 				2040D4B61CED64CB00D913EC /* store_icon@2x.png in Resources */,
 				2040D41A1CED64CB00D913EC /* member_type_90@2x.png in Resources */,
+				2030FAA21CEF03F50020D032 /* launchGuide.plist in Resources */,
 				2040D3EC1CED64CB00D913EC /* intro_tip_2@3x.png in Resources */,
 				2040D44C1CED64CB00D913EC /* nav_project_topic@2x.png in Resources */,
 				2040D4CA1CED64CB00D913EC /* tweet_selected@3x.png in Resources */,
@@ -2884,9 +2924,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2040D08F1CED648D00D913EC /* AppDelegate.m in Sources */,
+				2030FA9E1CEEF5660020D032 /* SPSLaunchGuideView.m in Sources */,
 				2040D5391CED64CB00D913EC /* SPSApplePay.m in Sources */,
 				2040D08C1CED648D00D913EC /* main.m in Sources */,
+				2040D5441CEDA51D00D913EC /* SPSMainViewController.m in Sources */,
+				2030FA981CEEDA570020D032 /* SPSLaunchGuideController.m in Sources */,
 				2040D53F1CED661100D913EC /* SPSViewController.m in Sources */,
+				2030FA9B1CEEF3B20020D032 /* SPSLaunchGuideViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2928,15 +2972,6 @@
 				2040D0941CED648D00D913EC /* Base */,
 			);
 			name = Main.storyboard;
-			path = ../../../superSet;
-			sourceTree = "<group>";
-		};
-		2040D0981CED648D00D913EC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2040D0991CED648D00D913EC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			path = ../../../superSet;
 			sourceTree = "<group>";
 		};

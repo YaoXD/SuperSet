@@ -27,7 +27,7 @@
     }
     
     //检查用户是否可进行某种卡的支付，是否支持Amex、MasterCard、Visa与银联四种卡，根据自己项目的需要进行检测
-    NSArray *supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkMasterCard,PKPaymentNetworkVisa];
+    NSArray *supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkMasterCard,PKPaymentNetworkVisa,PKPaymentNetworkChinaUnionPay];
     //PKPaymentNetworkChinaUnionPay 中国银联 是9.2新增加
     
     
@@ -49,11 +49,11 @@
         // 支付的系统
         applePayRequest.supportedNetworks = supportedNetworks;
         // 设置支持的交易处理协议，3DS必须支持，EMV为可选，目前国内的话还是使用两者吧。
-        applePayRequest.merchantCapabilities = PKMerchantCapability3DS | PKMerchantCapabilityEMV;
+        applePayRequest.merchantCapabilities = PKMerchantCapability3DS | PKMerchantCapabilityEMV | PKMerchantCapabilityCredit | PKMerchantCapabilityDebit;
         
         // applePayRequest.requiredBillingAddressFields = PKAddressFieldEmail;
         //如果需要邮寄账单可以选择进行设置，默认PKAddressFieldNone(不邮寄账单)
-        applePayRequest.requiredShippingAddressFields = PKAddressFieldPostalAddress|PKAddressFieldPhone|PKAddressFieldName;
+//        applePayRequest.requiredShippingAddressFields = PKAddressFieldPostalAddress|PKAddressFieldPhone|PKAddressFieldName;
         //送货地址信息，这里设置需要地址和联系方式和姓名，如果需要进行设置，默认PKAddressFieldNone(没有送货地址)
         
         //设置两种配送方式
@@ -97,46 +97,28 @@
 
 
 
-// 交易完成的回调
+-(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingContact:(PKContact *)contact completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKShippingMethod *> * _Nonnull, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion {
+    NSLog(@"didSelectShippingContact");
+}
+
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingMethod:(PKShippingMethod *)shippingMethod completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion {
+    NSLog(@"didSelectShippingMethod");
+}
+
+- (void)paymentAuthorizationViewControllerWillAuthorizePayment:(PKPaymentAuthorizationViewController *)controller {
+    NSLog(@"paymentAuthorizationViewControllerWillAuthorizePayment");
+    
+}
+
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion {
+    NSLog(@"did authorize payment token: %@, %@", payment.token, payment.token.transactionIdentifier);
+    
+    completion(PKPaymentAuthorizationStatusSuccess);
+}
+
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
-    NSLog(@"交易完成");
-    [controller dismissViewControllerAnimated:YES completion:nil];
-}
-
-// 确认交易的回调
-- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
-                       didAuthorizePayment:(PKPayment *)payment
-                                completion:(void (^)(PKPaymentAuthorizationStatus status))completion {
-    
-    PKPaymentToken *payToken = payment.token;
-    //支付凭据，发给服务端进行验证支付是否真实有效
-    PKContact *billingContact = payment.billingContact;            //账单信息
-    PKContact *shippingContact = payment.shippingContact;          //送货信息
-    PKShippingMethod *shippingMethod = payment.shippingMethod;     //送货方式
-    //等待服务器返回结果后再进行系统block调用
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 最后确认是否支付
-        completion(PKPaymentAuthorizationStatusSuccess);
-    });
-}
-
-// 送货方式的回调
--(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
-                 didSelectShippingContact:(PKContact *)contact
-                               completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKShippingMethod *> * _Nonnull, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion{
-    //contact送货地址信息，PKContact类型
-    //送货信息选择回调，如果需要根据送货地址调整送货方式，比如普通地区包邮+极速配送，偏远地区只有付费普通配送，进行支付金额重新计算，可以实现该代理，返回给系统：shippingMethods配送方式，summaryItems账单列表，如果不支持该送货信息返回想要的PKPaymentAuthorizationStatus
-    
-    NSMutableArray * shippingMethods = [NSMutableArray array];
-    
-    completion(PKPaymentAuthorizationStatusSuccess, shippingMethods, self.summaryItems);
-}
-
-//当用户选择了一个新的支付卡的时候会调用。(例如,应用信用卡附加费)
--(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectPaymentMethod:(PKPaymentMethod *)paymentMethod completion:(void (^)(NSArray<PKPaymentSummaryItem *> * _Nonnull))completion {
-    
-    NSLog(@"%@",paymentMethod);
-
+    NSLog(@"finish");
+    [controller dismissViewControllerAnimated:controller completion:NULL];
 }
 
 @end

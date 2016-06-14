@@ -7,22 +7,16 @@
 //
 
 #import "SPSLaunchGuideViewModel.h"
+#import "SPSLaunchGuideView.h"
+#import <Masonry.h>
 #import <UIKit/UIKit.h>
 
-static const NSInteger guidePhotoCount = 6;
+
 
 @implementation SPSLaunchGuideViewModel
 
 // 此处修改guide图片显示
 - (void)initWithView:(SPSLaunchGuideView *)view {
-    
-    UIScrollView * guideScrollView = [[UIScrollView alloc] init];
-    
-    CGRect screenF = [UIScreen mainScreen].bounds;
-    
-    guideScrollView.frame = screenF;
-    guideScrollView.contentSize = CGSizeMake(screenF.size.width * guidePhotoCount,screenF.size.height);
-    guideScrollView.backgroundColor = [UIColor colorWithRed:241/255 green:241/255 blue:241/255 alpha:1];
     
     
     

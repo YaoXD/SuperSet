@@ -4,10 +4,12 @@
 //
 //  Created by yao on 16/5/20.
 //  Copyright © 2016年 yao. All rights reserved.
-//
+//  新特性页面控制器
 
 #import "SPSLaunchGuideController.h"
 #import "SPSLaunchGuideView.h"
+#import "SPSApplePay.h"
+
 
 @interface SPSLaunchGuideController ()
 
@@ -18,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+//    [[[SPSApplePay alloc] init] startApplePayWithController:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,8 +49,7 @@
     // 判断是否需加载引导界面
     if ([self isNeedShowGuideView]) {
         launchGuideView = [[SPSLaunchGuideView alloc] init];
-        launchGuideView.frame = [UIScreen mainScreen].bounds;
-        launchGuideView.frame = CGRectMake(launchGuideView.frame.origin.x + launchGuideView.frame.size.width, launchGuideView.frame.origin.y, launchGuideView.frame.size.width, launchGuideView.frame.size.height);
+        launchGuideView.x = launchGuideView.width;
         [self.view addSubview:launchGuideView];
     }
     
@@ -64,7 +68,7 @@
     } completion:^(BOOL finished) {
         [launchScreenView removeFromSuperview];
         [UIView animateWithDuration:1 animations:^{
-            imageView.frame = CGRectMake(imageView.frame.origin.x - imageView.frame.size.width, imageView.frame.origin.y, imageView.frame.size.width, imageView.frame.size.height);
+            imageView.x = imageView.x - imageView.width;
             launchGuideView.frame = [UIScreen mainScreen].bounds;
         } completion:^(BOOL finished) {
             

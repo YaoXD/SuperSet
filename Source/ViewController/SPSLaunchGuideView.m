@@ -8,12 +8,16 @@
 
 #import "SPSLaunchGuideView.h"
 #import "SPSLaunchGuideViewModel.h"
-
+#import <Masonry.h>
 
 static const NSInteger guidePhotoCount = 6;
 static const NSString * figureName = @"intro_icon_";
 static const NSString * figureTextName = @"intro_tip_";
+@interface SPSLaunchGuideView () <UIScrollViewDelegate>
+@property(nonatomic, strong)UIScrollView * scrollView;
 
+@property(nonatomic, strong)UIPageControl * pagControl;
+@end
 @implementation SPSLaunchGuideView
 
 - (instancetype)init {
@@ -26,26 +30,51 @@ static const NSString * figureTextName = @"intro_tip_";
 
 - (void)initView {
     self.frame = [UIScreen mainScreen].bounds;
-    UIScrollView * scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
-    scrollView.contentSize = CGSizeMake(scrollView.width * guidePhotoCount, scrollView.height);
-    scrollView.bounces = YES;
-    scrollView.backgroundColor = [UIColor clearColor];
-    scrollView.pagingEnabled = YES;
-    [self addSubview:scrollView];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
+    self.scrollView.bounces = YES;
+    self.scrollView.backgroundColor = [UIColor clearColor];
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.delegate = self;
+    
+    self.pagControl = [[UIPageControl alloc] init];
+    self.pagControl.numberOfPages = guidePhotoCount;
+    
+    [self addSubview:self.scrollView];
+    [self addSubview:self.pagControl];
+    
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.and.right.bottom.equalTo(self);
+    }];
+    [self.pagControl mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.bottom.equalTo(self).with.offset(-40);
+    }];
+    
     
     CGRect headerViewFrame = self.frame;
-    headerViewFrame.size.height -= headerViewFrame.size.width * 0.2;
+    headerViewFrame.size.height -= 40;
     
     for (int i = 0; i < guidePhotoCount; i++) {
         headerViewFrame.origin.x = i * headerViewFrame.size.width;
-        
         SPSLaunchGuideHeaderView * headerView = [[SPSLaunchGuideHeaderView alloc] initWithPhotoCount:i andFrame:headerViewFrame];
-        
         headerView.backgroundColor = [UIColor randomColor];
-        
-        [scrollView addSubview:headerView];
+        [self.scrollView addSubview:headerView];
     }
 }
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    self.frame = [UIScreen mainScreen].bounds;
+    self.scrollView.contentSize = CGSizeMake(self.width * guidePhotoCount, self.height);
+    CGPoint scrPoint = CGPointMake((self.pagControl.currentPage)* self.width, 0);
+    self.scrollView.contentOffset = scrPoint;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%f,,%f",scrollView.contentOffset.x,scrollView.contentOffset.y);
+    self.pagControl.currentPage = (int)(self.scrollView.contentOffset.x + self.width * 0.5)/ (int)self.width;
+}
+
 
 @end
 
@@ -65,19 +94,52 @@ static const NSString * figureTextName = @"intro_tip_";
     CGFloat scale = [UIScreen mainScreen].scale;
     NSString * resolution = scale <= 2 ? @"@2x":@"@3x";
     NSString * imageName = [NSString stringWithFormat:@"%@%d%@.png",figureName,_number,resolution];
-    UIImageView * image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-    [self addSubview:image];
+    
+    self.figure = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    [self addSubview:self.figure];
     imageName = [NSString stringWithFormat:@"%@%d%@.png",figureTextName,_number,resolution];
-    UIImageView * text = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-    [self addSubview:text];
+    self.figureText = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    [self addSubview:self.figureText];
+    self.figure.translatesAutoresizingMaskIntoConstraints = NO;
+    self.figureText.translatesAutoresizingMaskIntoConstraints = NO;
+}
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
     
-    NSInteger space = (self.height - image.height - text.height) / 3;
-    if (space > 0) {
-        [image addConstraints:@[]];
+    CGRect frame = [UIScreen mainScreen].bounds;
+    frame.origin.x = _number * frame.size.width;
+    frame.size.height -= 40;
+    self.frame = frame;
+    [self updateConstraintsIfNeeded];
+    if (self.width > self.height) {
+        NSInteger space = (self.width - self.figure.width - self.figureText.width) / 3;
+        if (space > 0) {
+            [self.figure mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(self);
+                make.left.equalTo([NSNumber numberWithInteger:space]);
+            }];
+            
+            [self.figureText mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(self);
+                make.right.equalTo(self).with.offset(0-space);
+            }];
+        }
     } else {
-        [image addConstraints:@[]];
+        NSInteger space = (self.height - self.figure.height - self.figureText.height) / 3;
+        if (space > 0) {
+            [self.figure mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(self);
+                make.top.equalTo([NSNumber numberWithInteger:space]);
+            }];
+            
+            [self.figureText mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(self);
+                make.bottom.equalTo(self).with.offset(0-space);
+            }];
+            
+        }
     }
-    
 }
 
 

@@ -25,9 +25,9 @@
 
 
 #ifndef DEBUG
-#define NSLog(...) SPSLog(__VA_ARGS__)
+#define SPSLog(__VA_ARGS__) NSLog(...)
 #else
-#define NSLog(...)
+#define SPSLog(__VA_ARGS__)
 #endif
 
 #endif

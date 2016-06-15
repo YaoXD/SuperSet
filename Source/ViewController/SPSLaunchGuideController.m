@@ -9,7 +9,7 @@
 #import "SPSLaunchGuideController.h"
 #import "SPSLaunchGuideView.h"
 #import "SPSApplePay.h"
-
+#import <Masonry.h>
 
 @interface SPSLaunchGuideController ()
 
@@ -89,5 +89,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
+
+//-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+//    
+//    [self.view setNeedsLayout];
+//}
+
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    
+}
 
 @end

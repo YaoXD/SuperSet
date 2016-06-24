@@ -15,5 +15,12 @@
  *  @return UIColor随机颜色对象
  */
 + (UIColor *)randomColor;
-
+/**
+ *  16进制颜色值
+ *
+ *  @param hexColor 8位、6位颜色值 #11223344
+ *
+ *  @return UIColor
+ */
++ (UIColor*)ColorFromHexString:(NSString *)hexColor;
 @end

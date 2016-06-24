@@ -62,7 +62,6 @@
     launchScreenView.frame = [UIScreen mainScreen].bounds;
     [self.view addSubview:launchScreenView];
     
-    
     [UIView animateWithDuration:1 animations:^{
         launchScreenView.alpha = 0.01;
     } completion:^(BOOL finished) {
@@ -94,14 +93,16 @@
     return UIInterfaceOrientationMaskAll;
 }
 
-//-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-//    
-//    [self.view setNeedsLayout];
-//}
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self.view setNeedsLayout];
+}
 
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
+    for (UIView *subView in self.view.subviews) {
+        [subView setNeedsLayout];
+    }
     
 }
 

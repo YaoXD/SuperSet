@@ -12,6 +12,7 @@
 		2030FA9B1CEEF3B20020D032 /* SPSLaunchGuideViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2030FA9A1CEEF3B20020D032 /* SPSLaunchGuideViewModel.m */; };
 		2030FA9E1CEEF5660020D032 /* SPSLaunchGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2030FA9D1CEEF5660020D032 /* SPSLaunchGuideView.m */; };
 		2030FAA21CEF03F50020D032 /* launchGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2030FAA11CEF03F50020D032 /* launchGuide.plist */; };
+		203208AC1D1BE902000F2AAA /* SPSLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203208AB1D1BE902000F2AAA /* SPSLoginView.m */; };
 		2040D08C1CED648D00D913EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D08B1CED648D00D913EC /* main.m */; };
 		2040D08F1CED648D00D913EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2040D08E1CED648D00D913EC /* AppDelegate.m */; };
 		2040D0951CED648D00D913EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2040D0931CED648D00D913EC /* Main.storyboard */; };
@@ -599,6 +600,8 @@
 		2030FA9C1CEEF5660020D032 /* SPSLaunchGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSLaunchGuideView.h; sourceTree = "<group>"; };
 		2030FA9D1CEEF5660020D032 /* SPSLaunchGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSLaunchGuideView.m; sourceTree = "<group>"; };
 		2030FAA11CEF03F50020D032 /* launchGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = launchGuide.plist; sourceTree = "<group>"; };
+		203208AA1D1BE902000F2AAA /* SPSLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSLoginView.h; sourceTree = "<group>"; };
+		203208AB1D1BE902000F2AAA /* SPSLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSLoginView.m; sourceTree = "<group>"; };
 		2040D0871CED648D00D913EC /* superSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = superSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2040D08B1CED648D00D913EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2040D08D1CED648D00D913EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2264,6 +2267,8 @@
 				2030FA971CEEDA570020D032 /* SPSLaunchGuideController.m */,
 				2030FA9C1CEEF5660020D032 /* SPSLaunchGuideView.h */,
 				2030FA9D1CEEF5660020D032 /* SPSLaunchGuideView.m */,
+				203208AA1D1BE902000F2AAA /* SPSLoginView.h */,
+				203208AB1D1BE902000F2AAA /* SPSLoginView.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3052,6 +3057,7 @@
 				2040D5441CEDA51D00D913EC /* SPSMainViewController.m in Sources */,
 				2030FA981CEEDA570020D032 /* SPSLaunchGuideController.m in Sources */,
 				2040D53F1CED661100D913EC /* SPSViewController.m in Sources */,
+				203208AC1D1BE902000F2AAA /* SPSLoginView.m in Sources */,
 				2030FA9B1CEEF3B20020D032 /* SPSLaunchGuideViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
